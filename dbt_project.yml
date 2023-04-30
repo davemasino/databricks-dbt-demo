@@ -36,3 +36,9 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+    marts:
+      +schema: analytics
+    staging:
+      +schema: staging
+    base:
+      +schema: base
