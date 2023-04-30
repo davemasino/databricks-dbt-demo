@@ -40,4 +40,7 @@ models:
     base:
       +schema: base
     marts:
-      +schema: analytics
+      agg:
+        +schema: analytics
+      core:
+        +schema: analytics
