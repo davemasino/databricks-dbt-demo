@@ -40,7 +40,4 @@ models:
     base:
       +schema: base
     marts:
-      core:
-        +schema: datamart
-      agg:
-        +schema: datamart
+      +schema: datamart
