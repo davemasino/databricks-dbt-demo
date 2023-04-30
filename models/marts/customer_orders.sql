@@ -1,7 +1,4 @@
-{{ config(
-  materialized='table',
-  file_format='delta'
-) }}
+{{ config(materialized='table', file_format='delta') }}  
 
 select o.*, n.n_name, c.c_name, c.c_comment
 from {{ ref('orders') }} as o

@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}  
-  
 with nation as (  
     select  
         n_nationkey,  

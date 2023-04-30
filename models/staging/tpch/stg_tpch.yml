@@ -2,7 +2,6 @@ version: 2
 
 models:
   - name: stg_orders
-    +schema: staging
     description: 'Stage model for orders table'
     columns:
       - name: o_orderkey
@@ -20,7 +19,6 @@ models:
           - not_null
 
   - name: stg_customer
-    +schema: staging
     description: 'Stage model for customer table'
     columns:
       - name: c_custkey
@@ -38,7 +36,6 @@ models:
           - not_null
 
   - name: stg_nation
-    schema: staging
     description: 'Stage model for nation table'
     columns:
       - name: n_nationkey

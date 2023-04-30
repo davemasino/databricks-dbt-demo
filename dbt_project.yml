@@ -32,13 +32,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
+  +materialized: view
+  
   databricks_dbt_demo:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
-    marts:
-      +schema: analytics
-    staging:
-      +schema: staging
     base:
-      +schema: base
+      +materialized: table
+    marts:
+      +materialized: table
