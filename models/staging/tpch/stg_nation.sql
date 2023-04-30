@@ -2,10 +2,10 @@
   
 with nation as (  
     select  
-        nationkey,  
-        name,  
-        regionkey,  
-        comment  
+        n_nationkey,  
+        n_name,  
+        n_regionkey,  
+        n_comment  
     from {{ source('tpch', 'nation') }}  
 )  
   

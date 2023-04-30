@@ -9,32 +9,32 @@ sources:
         description: 'Order information table'  
         tests:  
           - unique:  
-              column_name: orderkey  
+              column_name: o_orderkey  
           - not_null:  
-              column_name: orderkey  
+              column_name: o_orderkey  
           - not_null:  
-              column_name: custkey  
+              column_name: o_custkey  
           - not_null:  
-              column_name: orderdate  
+              column_name: o_orderdate  
   
       - name: customer  
         description: 'Customer information table'  
         tests:  
           - unique:  
-              column_name: custkey  
+              column_name: c_custkey  
           - not_null:  
-              column_name: custkey  
+              column_name: c_custkey  
           - not_null:  
-              column_name: name  
+              column_name: c_name  
           - not_null:  
-              column_name: nationkey  
+              column_name: c_nationkey  
   
       - name: nation  
         description: 'Nation information table'  
         tests:  
           - unique:  
-              column_name: nationkey  
+              column_name: n_nationkey  
           - not_null:  
-              column_name: nationkey  
+              column_name: n_nationkey  
           - not_null:  
-              column_name: name  
+              column_name: n_name  
