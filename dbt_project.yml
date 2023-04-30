@@ -35,7 +35,9 @@ models:
   +materialized: view
   
   databricks_dbt_demo:
+    stage:
+      +schema: stage
     base:
-      +materialized: table
+      +schema: base
     marts:
-      +materialized: table
+      +schema: analytics
