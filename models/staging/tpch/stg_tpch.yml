@@ -1,0 +1,49 @@
+version: 2  
+  
+models:  
+  - name: stg_orders  
+    description: 'Stage model for orders table'  
+    columns:  
+      - name: orderkey  
+        description: 'Unique identifier for each order'  
+        tests:  
+          - unique  
+          - not_null  
+      - name: custkey  
+        description: 'Unique identifier for the customer who placed the order'  
+        tests:  
+          - not_null  
+      - name: orderdate  
+        description: 'Date when the order was placed'  
+        tests:  
+          - not_null  
+  
+  - name: stg_customer  
+    description: 'Stage model for customer table'  
+    columns:  
+      - name: custkey  
+        description: 'Unique identifier for each customer'  
+        tests:  
+          - unique  
+          - not_null  
+      - name: name  
+        description: 'Name of the customer'  
+        tests:  
+          - not_null  
+      - name: nationkey  
+        description: 'Unique identifier for the nation of the customer'  
+        tests:  
+          - not_null  
+  
+  - name: stg_nation  
+    description: 'Stage model for nation table'  
+    columns:  
+      - name: nationkey  
+        description: 'Unique identifier for each nation'  
+        tests:  
+          - unique  
+          - not_null  
+      - name: name  
+        description: 'Name of the nation'  
+        tests:  
+          - not_null  

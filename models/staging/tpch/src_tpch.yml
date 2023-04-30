@@ -1,0 +1,40 @@
+version: 2  
+  
+sources:  
+  - name: tpch  
+    database: samples  
+    schema: tpch  
+    tables:  
+      - name: orders  
+        description: 'Order information table'  
+        tests:  
+          - unique:  
+              column_name: orderkey  
+          - not_null:  
+              column_name: orderkey  
+          - not_null:  
+              column_name: custkey  
+          - not_null:  
+              column_name: orderdate  
+  
+      - name: customer  
+        description: 'Customer information table'  
+        tests:  
+          - unique:  
+              column_name: custkey  
+          - not_null:  
+              column_name: custkey  
+          - not_null:  
+              column_name: name  
+          - not_null:  
+              column_name: nationkey  
+  
+      - name: nation  
+        description: 'Nation information table'  
+        tests:  
+          - unique:  
+              column_name: nationkey  
+          - not_null:  
+              column_name: nationkey  
+          - not_null:  
+              column_name: name  
