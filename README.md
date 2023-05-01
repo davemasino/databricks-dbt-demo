@@ -1,10 +1,16 @@
-Welcome to your new dbt project!
+## Databricks dbt demo
 
-### Using the starter project
+### Overview
+Builds stage, base, and datamart models from the TPCH sample data included with Databricks
+
+### Model lineage
+![alt text](images/dbt_dbricks_lineage.png "Databricks dbt demo lineage")
+
+### Using the demo project
 
 Try running the following commands:
-- dbt run
-- dbt test
+- dbt deps
+- dbt build
 
 
 ### Resources:
