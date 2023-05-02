@@ -1,38 +1,47 @@
-version: 2  
-  
-models:  
-  - name: orders  
-    description: Base table for orders  
-    columns:  
-      - name: o_orderkey  
-        description: Primary key for the orders table  
-        tests:  
-          - not_null  
-          - unique  
-      - name: o_custkey  
-        description: Foreign key referencing the customer table  
-        tests:  
-          - not_null  
-  
-  - name: customer  
-    description: Base table for customer  
-    columns:  
-      - name: c_custkey  
-        description: Primary key for the customer table  
-        tests:  
-          - not_null  
-          - unique  
-      - name: c_nationkey  
-        description: Foreign key referencing the nation table  
-        tests:  
-          - not_null  
-  
-  - name: nation  
-    description: Base table for nation  
-    columns:  
-      - name: n_nationkey  
-        description: Primary key for the nation table  
-        tests:  
-          - not_null  
+version: 2
+
+models:
+  - name: orders
+    description: Base table for orders
+    columns:
+      - name: o_orderkey
+        description: Primary key for the orders table
+        tests:
+          - not_null
           - unique
- 
+      - name: o_custkey
+        description: Foreign key referencing the customer table
+        tests:
+          - not_null
+      - name: o_orderid
+        description: Natural identifier for the orders table
+        tests:
+          - not_null
+          - unique
+
+  - name: customer
+    description: Base table for customer
+    columns:
+      - name: c_custkey
+        description: Primary key for the customer table
+        tests:
+          - not_null
+          - unique
+      - name: c_nationkey
+        description: Foreign key referencing the nation table
+        tests:
+          - not_null
+      - name: c_custid
+        description: Natural identifier for the customer table
+        tests:
+          - not_null
+          - unique
+
+  - name: nation
+    description: Base table for nation
+    columns:
+      - name: n_nationkey
+        description: Primary key for the nation table
+        tests:
+          - not_null
+          - unique

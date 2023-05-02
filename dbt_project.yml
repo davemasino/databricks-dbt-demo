@@ -41,3 +41,5 @@ models:
       +schema: base
     marts:
       +schema: datamart
+      +materialized: table
+      +file_format: delta

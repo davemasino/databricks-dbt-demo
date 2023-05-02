@@ -1,40 +1,51 @@
-version: 2  
-  
-sources:  
-  - name: tpch  
-    database: samples  
-    schema: tpch  
-    tables:  
-      - name: orders  
-        description: 'Order information table'  
-        tests:  
-          - unique:  
-              column_name: o_orderkey  
-          - not_null:  
-              column_name: o_orderkey  
-          - not_null:  
-              column_name: o_custkey  
-          - not_null:  
-              column_name: o_orderdate  
-  
-      - name: customer  
-        description: 'Customer information table'  
-        tests:  
-          - unique:  
-              column_name: c_custkey  
-          - not_null:  
-              column_name: c_custkey  
-          - not_null:  
-              column_name: c_name  
-          - not_null:  
-              column_name: c_nationkey  
-  
-      - name: nation  
-        description: 'Nation information table'  
-        tests:  
-          - unique:  
-              column_name: n_nationkey  
-          - not_null:  
-              column_name: n_nationkey  
-          - not_null:  
-              column_name: n_name  
+version: 2
+
+sources:
+  - name: tpch
+    database: samples
+    schema: tpch
+    tables:
+      - name: orders
+        description: 'Order information table'
+        columns:
+          - name: o_orderkey
+            description: Primary key for the orders table
+            tests:
+              - unique
+              - not_null
+          - name: o_custkey
+            description: Foreign key referencing the customer table
+            tests:
+              - not_null
+          - name: o_orderdate
+            description: Date the order was placed
+            tests:
+              - not_null
+      - name: customer
+        description: 'Customer information table'
+        columns:
+          - name: c_custkey
+            description: Primary key for the customer table
+            tests:
+              - unique
+              - not_null
+          - name: c_name
+            description: Customer name
+            tests:
+              - not_null
+          - name: c_nationkey
+            description: Foreign key referencing the nation table
+            tests:
+              - not_null
+      - name: nation
+        description: 'Nation information table'
+        columns:
+          - name: n_nationkey
+            description: Primary key for the nation table
+            tests:
+              - unique
+              - not_null
+          - name: n_name
+            description: Name of the nation
+            tests:
+              - not_null

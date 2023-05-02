@@ -1,6 +1,7 @@
 with customer as (  
     select  
-        c_custkey,  
+        c_custkey, 
+        {{ dbt_utils.generate_surrogate_key(['c_custkey']) }} as c_custid,
         c_name,  
         c_address,  
         c_nationkey,  
