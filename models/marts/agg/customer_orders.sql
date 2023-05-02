@@ -1,5 +1,3 @@
-{{ config(materialized='table', file_format='delta') }}  
-
 select
   {{ dbt_utils.star(from=ref('fact_orders'), except=['o_orderkey', 'o_custkey']) }},
   {{ dbt_utils.star(from=ref('dim_customer'), except=['c_custkey']) }},

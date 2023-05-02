@@ -1,6 +1,7 @@
 with orders as (  
     select  
-        o_orderkey,  
+        o_orderkey,
+        {{ dbt_utils.generate_surrogate_key(['o_orderkey']) }} as o_orderid,
         o_custkey,  
         o_orderstatus,  
         o_totalprice,  
