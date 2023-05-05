@@ -39,6 +39,8 @@ models:
       +schema: staging
     base:
       +schema: base
+      +materialized: table
+      +file_format: delta
     marts:
       +schema: datamart
       +materialized: table
