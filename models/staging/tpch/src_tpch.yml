@@ -1,51 +1,113 @@
-version: 2
-
-sources:
-  - name: tpch
-    database: hive_metastore
-    schema: tpch
-    tables:
-      - name: orders
-        description: 'Order information table'
-        columns:
-          - name: o_orderkey
-            description: Primary key for the orders table
-            tests:
-              - unique
-              - not_null
-          - name: o_custkey
-            description: Foreign key referencing the customer table
-            tests:
-              - not_null
-          - name: o_orderdate
-            description: Date the order was placed
-            tests:
-              - not_null
-      - name: customer
-        description: 'Customer information table'
-        columns:
-          - name: c_custkey
-            description: Primary key for the customer table
-            tests:
-              - unique
-              - not_null
-          - name: c_name
-            description: Customer name
-            tests:
-              - not_null
-          - name: c_nationkey
-            description: Foreign key referencing the nation table
-            tests:
-              - not_null
-      - name: nation
-        description: 'Nation information table'
-        columns:
-          - name: n_nationkey
-            description: Primary key for the nation table
-            tests:
-              - unique
-              - not_null
-          - name: n_name
-            description: Name of the nation
-            tests:
-              - not_null
+version: 2  
+  
+sources:  
+  - name: tpch  
+    database: hive_metastore  
+    schema: tpch  
+    tables:  
+      - name: orders  
+        description: 'Order information table'  
+        columns:  
+          - name: o_orderkey  
+            description: Primary key for the orders table  
+            tests:  
+              - unique  
+              - not_null  
+          - name: o_custkey  
+            description: Foreign key referencing the customer table  
+            tests:  
+              - not_null  
+          - name: o_orderdate  
+            description: Date the order was placed  
+            tests:  
+              - not_null  
+      - name: customer  
+        description: 'Customer information table'  
+        columns:  
+          - name: c_custkey  
+            description: Primary key for the customer table  
+            tests:  
+              - unique  
+              - not_null  
+          - name: c_name  
+            description: Customer name  
+            tests:  
+              - not_null  
+          - name: c_nationkey  
+            description: Foreign key referencing the nation table  
+            tests:  
+              - not_null  
+      - name: nation  
+        description: 'Nation information table'  
+        columns:  
+          - name: n_nationkey  
+            description: Primary key for the nation table  
+            tests:  
+              - unique  
+              - not_null  
+          - name: n_name  
+            description: Name of the nation  
+            tests:  
+              - not_null  
+      - name: region  
+        description: 'Region information table'  
+        columns:  
+          - name: r_regionkey  
+            description: Primary key for the region table  
+            tests:  
+              - unique  
+              - not_null  
+          - name: r_name  
+            description: Name of the region  
+            tests:  
+              - not_null  
+      - name: part  
+        description: 'Part information table'  
+        columns:  
+          - name: p_partkey  
+            description: Primary key for the part table  
+            tests:  
+              - unique  
+              - not_null  
+          - name: p_name  
+            description: Name of the part  
+            tests:  
+              - not_null  
+      - name: supplier  
+        description: 'Supplier information table'  
+        columns:  
+          - name: s_suppkey  
+            description: Primary key for the supplier table  
+            tests:  
+              - unique  
+              - not_null  
+          - name: s_name  
+            description: Supplier name  
+            tests:  
+              - not_null  
+      - name: partsupp  
+        description: 'Part supplier information table'  
+        columns:  
+          - name: ps_partkey  
+            description: Foreign key referencing the part table  
+            tests:  
+              - not_null  
+          - name: ps_suppkey  
+            description: Foreign key referencing the supplier table  
+            tests:  
+              - not_null  
+      - name: lineitem  
+        description: 'Line item information table'  
+        columns:  
+          - name: l_orderkey  
+            description: Foreign key referencing the orders table  
+            tests:  
+              - not_null  
+          - name: l_partkey  
+            description: Foreign key referencing the part table  
+            tests:  
+              - not_null  
+          - name: l_suppkey  
+            description: Foreign key referencing the supplier table  
+            tests:  
+              - not_null  
