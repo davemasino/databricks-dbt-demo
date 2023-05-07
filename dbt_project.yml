@@ -2,12 +2,11 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'databricks_dbt_demo'
+name: 'redshift_dbt_demo'
 version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-#profile: 'databricks_dbt_demo'
 profile: 'redshift_dbt_demo'
 
 
@@ -36,9 +35,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   +materialized: view
   
-  databricks_dbt_demo:
+  redshift_dbt_demo:
     staging:
       +schema: staging
+      +materialized: table
     base:
       +schema: base
       +materialized: table
