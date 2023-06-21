@@ -10,9 +10,9 @@ This demo will build the model lineage shown below using `dbt`. You can generate
 
 ## Getting started
 
-Environment setup:
+Python setup:
 
-- Create a Python 3.8+ virtual environment. The demo was built and tested on Python 3.8.10, use this for best results.
+- Create a Python 3.8+ [virtual environment](https://docs.python.org/3/library/venv.html) anywhere you have access to a shell prompt. The demo was built and tested on Python 3.8.10, use this version for best results.
 
 - Clone this code repo to wherever you created the Python environment and `cd` into the repo directory.
 
@@ -40,9 +40,13 @@ databricks_dbt_demo:
   target: dev
 ```
 
-## Basic Usage
+## Basic usage
 
-You will use the TPCH sample data that is already installed on the Databricks cluster. To verify the sample data is installed, follow the steps here:
+The basic demo uses the sample TPCH data that is already installed on the Databricks cluster. It's typically generated at a scale factor of 10, which equates to ~10 gigabytes. See the [TPCH documentation](https://www.tpc.org/tpc_documents_current_versions/current_specifications5.asp) for more information.
+
+To verify the sample data is installed, go the the "SQL" persona and click the "Data" icon in the left menu bar. You should see the `tpch` schema and tables under the `sample` database.
+
+![alt text](images/dbricks_tpch_data.png) "Databricks dbt demo lineage")
 
 - a
 - b
@@ -57,32 +61,6 @@ Follow these steps:
 - Run the `tpch_datagen.py` Python script on a VM that has ~500GB of available memory and ~100GB of free disk space. This will generate the Parquet files needed for this demo.
 - Copy the Parquet data files to Databricks dbfs using the [Databricks CLI](https://docs.databricks.com/dev-tools/cli/index.html). Put each data file in a folder of the same dataset name.
 - Be sure to shut down the VM when you are finished uploading the data to Databricks to avoid incurring unnecessary costs.
-
-## Using the demo project
-
-Getting set up:
-
-- Create a Python 3.8+ virtual environment. The demo was built and tested on Python 3.8.10, use this for best results.
-
-- Install the [dbt-databricks](https://github.com/databricks/dbt-databricks) adapter, which will also install a compatible version of dbt-core
-
-- If you do not have a Databricks access token, follow the steps in the [Databricks documentation](https://docs.databricks.com/dev-tools/auth.html) to create one. Store the token securely and refer to it in the next steps.
-
-- Create an entry in your dbt profiles.yml file, Azure Databricks example is shown below using a Serverless SQL warehouse. Serverless SQL warehouses are recommended for best demo performance and startup times. 
-
-```text
-databricks_dbt_demo:
-  outputs:
-    dev:
-      catalog: null
-      host: adb-1111111111111111.1.azuredatabricks.net
-      http_path: /sql/1.0/warehouses/abcdef1234567890
-      schema: dbxdemo
-      threads: 1
-      token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-      type: databricks
-  target: dev
-```
 
 Try running the following commands:
 
