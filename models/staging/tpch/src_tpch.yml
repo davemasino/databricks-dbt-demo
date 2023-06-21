@@ -2,8 +2,10 @@ version: 2
   
 sources:  
   - name: tpch  
+# Uncomment below to use the self-generated tpch dataset 
+#    database: hive_metastore  
     database: samples  
-    schema: tpch  
+    schema: tpch
     tables:  
       - name: orders  
         description: 'Order information table'  

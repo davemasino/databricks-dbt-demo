@@ -165,3 +165,6 @@ cython_debug/
 # dbt
 logs/
 dbt_packages/
+
+# benchmarks
+tpch/

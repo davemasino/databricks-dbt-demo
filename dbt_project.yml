@@ -37,6 +37,8 @@ models:
   databricks_dbt_demo:
     staging:
       +schema: staging
+      +materialized: table
+      +file_format: delta
     base:
       +schema: base
       +materialized: table
